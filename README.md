@@ -63,7 +63,7 @@ pip install -r requirements.txt
 
 bash
 
-_\# Start MLflow, Argilla, and the application_
+# Start MLflow, Argilla, and the application_
 
 ./scripts/setup\_services.sh
 
@@ -73,7 +73,7 @@ bash
 
 cp .env.example .env
 
-_\# Edit .env with your API keys and settings_
+# Edit .env with your API keys and settings_
 
 Basic Usage
 
@@ -110,7 +110,7 @@ python
 
 from codeverdict.data.models import CodePrompt, PromptType
 
-_\# Create custom evaluation sets_
+# Create custom evaluation sets_
 
 prompts = \[
 
@@ -148,7 +148,7 @@ test\_cases=\[...\]
 
 python
 
-_\# Set up manual evaluation workspace_
+# Set up manual evaluation workspace_
 
 from codeverdict.evaluation.manual\_evaluator import ManualEvaluationManager
 
@@ -188,7 +188,7 @@ Model Integration
 
 python
 
-_\# Add new AI models_
+# Add new AI models_
 
 from codeverdict.models.providers import ModelProvider
 
@@ -196,7 +196,7 @@ class CustomModelProvider(ModelProvider):
 
 def generate\_completion(self, prompt, model\_config):
 
-_\# Integrate with your model API_
+# Integrate with your model API_
 
 return self.call\_model\_api(prompt, model\_config)
 
@@ -214,7 +214,7 @@ if "security" in completion.metadata.get('prompt\_type', ''):
 
 return TriageDecision.MANUAL\_REVIEW
 
-_\# Your custom logic here_
+# Your custom logic here_
 
 📊 Monitoring & Analytics
 
@@ -263,11 +263,11 @@ Example API Usage
 
 bash
 
-_\# Trigger evaluation_
+# Trigger evaluation_
 
 curl -X POST "http://localhost:8000/evaluate/gpt-4?eval\_set\_name=security\_audit"
 
-_\# Get results_
+# Get results_
 
 curl "http://localhost:8000/results/gpt-4"
 
