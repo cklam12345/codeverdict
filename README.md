@@ -27,28 +27,6 @@ CodeVerdict is an open-source evaluation framework designed specifically for AI 
 - **🔍 Smart Triage**: AI-powered clustering and routing to optimize evaluation workflow
 - **👥 Collaborative Review**: Argilla integration for distributed manual code review
 
-
-## 🏗️ Architecture Overview
-
-```mermaid
-graph TD
-    A[Code Prompts] --> B[AI Models]
-    B --> C[Code Completions]
-    C --> D{Triage Engine}
-    D --> E[Auto Evaluation]
-    D --> F[Manual Review]
-    E --> G[Results Aggregation]
-    F --> G
-    G --> H[Quality Dashboard]
-
-
-
-
-
-
-
-
-
 🚀 Quick Start
 
 Prerequisites
@@ -356,3 +334,16 @@ Supported by the AI/ML community's dedication to quality and safety.
 CodeVerdict - Because every line of AI-generated code deserves a fair trial. ⚖️
 
 "In AI We Trust, But We Verify" - Chin Keong Lam 🔍
+
+## 🏗️ Architecture Overview
+
+```mermaid
+graph TD
+    A[Code Prompts] --> B[AI Models]
+    B --> C[Code Completions]
+    C --> D{Triage Engine}
+    D --> E[Auto Evaluation]
+    D --> F[Manual Review]
+    E --> G[Results Aggregation]
+    F --> G
+    G --> H[Quality Dashboard]
