@@ -1,0 +1,57 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  codeverdict-api:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    environment:
+      - MLFLOW_TRACKING_URI=http://codeverdict-mlflow:5000
+      - ARGILLA_API_URL=http://codeverdict-argilla:6900
+    depends_on:
+      - codeverdict-mlflow
+      - codeverdict-argilla
+    volumes:
+      - ./data:/app/data
+    networks:
+      - codeverdict-network
+
+  codeverdict-mlflow:
+    image: mlflow/mlflow:2.9.2
+    ports:
+      - "5000:5000"
+    command: mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0
+    volumes:
+      - ./mlruns:/mlruns
+      - ./data:/data
+    networks:
+      - codeverdict-network
+
+  codeverdict-argilla:
+    image: argilla/argilla-server:latest
+    ports:
+      - "6900:6900"
+    environment:
+      - ARGILLA_HOME_PATH=/var/lib/argilla
+    volumes:
+      - ./argilla_data:/var/lib/argilla
+    networks:
+      - codeverdict-network
+
+  codeverdict-redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - codeverdict-network
+
+networks:
+  codeverdict-network:
+    driver: bridge
+
+volumes:
+  mlruns:
+  argilla_data:

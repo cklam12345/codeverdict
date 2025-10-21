@@ -1,0 +1,37 @@
+# Create the new project structure
+codeverdict/
+├── codeverdict/                 # Main package
+│   ├── __init__.py
+│   ├── config/
+│   │   ├── __init__.py
+│   │   └── settings.py
+│   ├── data/
+│   │   ├── __init__.py
+│   │   └── models.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── registry.py
+│   │   └── providers.py
+│   ├── evaluation/
+│   │   ├── __init__.py
+│   │   ├── tracing.py
+│   │   ├── auto_evaluator.py
+│   │   ├── triage_engine.py
+│   │   └── manual_evaluator.py
+│   ├── orchestration/
+│   │   ├── __init__.py
+│   │   └── workflows.py
+│   └── api/
+│       ├── __init__.py
+│       └── main.py
+├── tests/
+├── scripts/
+│   ├── setup_services.sh
+│   └── run_evaluation.sh
+├── docker/
+├── examples/
+├── docs/
+├── requirements.txt
+├── docker-compose.yml
+├── setup.py
+└── README.md
